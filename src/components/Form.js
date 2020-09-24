@@ -3,14 +3,16 @@ import React from 'react';
 
 const Form = ({setInputText, setTodos, todos, inputText, setStatus}) => {
     const inputTextHandler = (e) => {
-        console.log(e.target.value);
         setInputText(e.target.value);
     };
     const submitTodoHandler = (e) => {
         e.preventDefault();
+        if (inputText === "") {
+        } else {
         setTodos([
             ...todos, {text: inputText, completed: false, id: Math.random() }
         ]);
+      }
         setInputText("");
     };
     const statusHandler = (e) => {
